@@ -61,6 +61,7 @@ public class ClienteUDP {
             DatagramPacket sendPacket = new DatagramPacket(data, data.length, InetAddress.getByName(ip), puerto);
             Socket.send(sendPacket);
             System.out.println("Mensaje enviado");
+            System.out.println(cont);
             cont++;
         }
         System.out.println("Done!");

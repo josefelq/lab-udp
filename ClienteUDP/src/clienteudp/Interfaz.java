@@ -14,8 +14,16 @@ public class Interfaz {
      */
     public static void main(String args[]) throws Exception {
            ClienteUDP cliente=new ClienteUDP();
-           cliente.setNumeroEnvios(100);
-           cliente.enviarDatos();
+           cliente.setNumeroEnvios(10);
+           cliente.enviarDatos();  
+           
+           ClienteUDP cliente2=new ClienteUDP();
+           cliente2.setNumeroEnvios(20);
+           cliente2.enviarDatos();  
+           
+           ClienteUDP cliente3=new ClienteUDP();
+           cliente3.setNumeroEnvios(30);
+           cliente3.enviarDatos();  
     }
     
 }
