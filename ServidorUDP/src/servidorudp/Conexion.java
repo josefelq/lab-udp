@@ -106,6 +106,8 @@ public class Conexion extends Thread {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
             String data = "";
             try {
+                System.out.println("LO RECIBI EL  : "+f.getDate().toString());
+                System.out.println("SE MANDO EL : "+sdf.parse(f.getObjeto().getFecha()).toString());
                 data = f.getObjeto().getNumeroSecuencia() + ". " + (((f.getDate().getTime() - 5) - (sdf.parse(f.getObjeto().getFecha())).getTime()))+" ms";
             } catch (ParseException ex) {
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);

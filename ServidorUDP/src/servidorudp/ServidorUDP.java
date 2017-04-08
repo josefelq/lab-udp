@@ -28,9 +28,10 @@ public class ServidorUDP {
         
         DatagramSocket socket = null;
          try {
-            socket = new DatagramSocket(5000);
+            //socket = new DatagramSocket(5000);
+            socket = new DatagramSocket(Integer.parseInt(args[0]));
             socket.setReceiveBufferSize(20000000);
-            //socket = new DatagramSocket(Integer.parseInt(args[0]));
+            
             while (true) {
                 byte[] incomingData = new byte[2048];
                 DatagramPacket incomingPacket = new DatagramPacket(incomingData, incomingData.length);
