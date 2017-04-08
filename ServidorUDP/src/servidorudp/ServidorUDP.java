@@ -9,6 +9,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import clienteudp.Objeto;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Queue;
 
 public class ServidorUDP {
@@ -27,11 +28,10 @@ public class ServidorUDP {
         
         DatagramSocket socket = null;
          try {
-            socket = new DatagramSocket(1978);
+            socket = new DatagramSocket(5000);
             socket.setReceiveBufferSize(20000000);
             //socket = new DatagramSocket(Integer.parseInt(args[0]));
             while (true) {
-                Thread.sleep(10);
                 byte[] incomingData = new byte[2048];
                 DatagramPacket incomingPacket = new DatagramPacket(incomingData, incomingData.length);
                 socket.receive(incomingPacket);
@@ -44,7 +44,7 @@ public class ServidorUDP {
                     int port = incomingPacket.getPort();
                     String dir=""+IPAddress.toString()+";"+port;
                     System.out.println("object received = " + o.getNumeroSecuencia());
-                    list.add(new Data(o, dir));
+                    list.add(new Data(o, dir, new Date()));
                     if(currentClients.isEmpty()){
                         currentClients.add(dir);
                         (new Conexion(dir)).start();

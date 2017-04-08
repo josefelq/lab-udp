@@ -12,7 +12,7 @@ import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class ClienteUDP {
+public class ClienteUDP extends Thread{
 
     private int numeroEnvios;
 
@@ -33,6 +33,9 @@ public class ClienteUDP {
         Socket = new DatagramSocket();
 
     }
+    
+    public void run(){
+    }
 
     public void setNumeroEnvios(int numeroEnvios) {
         this.numeroEnvios = numeroEnvios;
@@ -49,7 +52,7 @@ public class ClienteUDP {
     public void enviarDatos() throws SocketException, UnknownHostException, IOException {
         int cont = 0;
         while (cont < numeroEnvios+1) {
-            String timeStamp=""+cont;
+            String timeStamp=""+numeroEnvios;
             if(cont !=0){
                 timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
             }

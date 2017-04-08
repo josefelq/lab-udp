@@ -2,6 +2,7 @@
 package servidorudp;
 
 import clienteudp.Objeto;
+import java.util.Date;
 
 
 public class Data {
@@ -10,9 +11,12 @@ public class Data {
     
     private String dir;
     
-    public Data(Objeto obj, String dir){
+    private Date date;
+    
+    public Data(Objeto obj, String dir, Date date){
         this.obj=obj;
         this.dir=dir;
+        this.date=date;
     }
     
     public Objeto getObjeto(){
@@ -21,6 +25,10 @@ public class Data {
     
     public String getDir(){
         return dir;
+    }
+    
+    public Date getDate(){
+        return date;
     }
     
 }
